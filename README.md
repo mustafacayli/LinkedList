@@ -1,4 +1,6 @@
 ### Hi there 👋
+My name is Mustafa and I'm studying in Istanbul Medeniyet University
+
 
 <!--
 **mustafacayli/mustafacayli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
