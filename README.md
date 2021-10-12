@@ -1,5 +1,4 @@
 ### Hi there 👋
-My name is Mustafa and I'm studying in Istanbul Medeniyet University
 
 
 <!--
