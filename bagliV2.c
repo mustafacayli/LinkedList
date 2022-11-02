@@ -29,7 +29,7 @@ node * ekle(node *head,char *ad,char *soyad,char *tel){
 
     if(head==NULL){
         head = kisi;
-        printf("ilk kisi eklendi");
+        printf("ilk kisi eklendi\n");
 
     }
     else{
@@ -37,7 +37,7 @@ node * ekle(node *head,char *ad,char *soyad,char *tel){
         while(temp->next != NULL)
         temp = temp->next;
         temp->next=kisi;
-        printf("%s rehbere eklendi",ad);
+        printf("%s rehbere eklendi\n",ad);
         
     }
 
@@ -51,18 +51,18 @@ node * ekle(node *head,char *ad,char *soyad,char *tel){
 node * sil(node *head){
 
     if(head==NULL){
-        printf("list is empty");
+        printf("list is empty\n");
     }
 
     else{
         char numara[20];
 
-        printf("silencek kisinin numarasi");  scanf("%s",numara);
+        printf("silencek kisinin numarasi: ");  scanf("%s",numara);
 
         if(head->next==NULL && strcmp(head->tel,numara)==0){
             free(head);
             head=NULL;
-            printf("now list is empty");
+            printf("now list is empty\n");
 
         }
         else if(head->next!=NULL && strcmp(head->tel,numara)==0){
@@ -70,7 +70,7 @@ node * sil(node *head){
             free(head);
             head = temp;
 
-            printf("%s numarali kisi silindi",numara);
+            printf("%s numarali kisi silindi\n",numara);
         }
         else{
             node *temp = head;
@@ -80,7 +80,7 @@ node * sil(node *head){
                     
                     temp2->next=temp->next;
                     free(temp);
-                    printf("%s silindi",numara);
+                    printf("%s silindi\n",numara);
                     
                 }
                 temp2 = temp;
@@ -90,7 +90,7 @@ node * sil(node *head){
                     
                     temp2->next=NULL;
                     free(temp);
-                    printf("%s numarali kisi silindi",numara);
+                    printf("%s numarali kisi silindi\n",numara);
                     
                 }
         }
@@ -105,12 +105,12 @@ node * sil(node *head){
 node * yazdir(node *head){
     system("cls");
     if(head==NULL){
-        printf("list is empty");
+        printf("list is empty\n");
     }
 
     else{
         node *temp = head;
-        printf("kayitli kisiler\n");
+        printf("\nkayitli kisiler\n");
         printf("--------------\n");
         while(temp!=NULL){
             printf("%s\t%s\t%s\n",temp->ad,temp->soyad,temp->tel);
@@ -127,13 +127,13 @@ node * arama(node *head){
     system("cls");
 
     if(head==NULL){
-        printf("list is empty");
+        printf("list is empty\n");
 
     }
     else{
 
         char numara[20];
-        printf("Aradiginiz kisinin numarasi");   scanf("%s",numara);
+        printf("Aradiginiz kisinin numarasi: ");   scanf("%s",numara);
 
         node *temp = head;
         while(temp!=NULL){
@@ -163,11 +163,11 @@ void menu(){
 int main(){
     
 
-    
+   
 
     node * head = NULL;
-    head=ekle(head,"mustafa","ali","1");
-    head=ekle(head,"kemal","mahmut","5");
+    head=ekle(head,"Serpil","Üstebay","123456");
+    head=ekle(head,"Ayşe","Gül","123457");
     int secim;
     char ad[20],soyad[20],tel[20];
     while(1){
