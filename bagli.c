@@ -21,7 +21,7 @@ typedef struct rehber node;
 //////
 node * ekle(node *head,char *ad,char *soyad,char *tel){
     
-    node *kisi = (node *)malloc(sizeof(node )); 
+    node * kisi = (node *)malloc(sizeof(node )); 
     strcpy(kisi->ad,ad);
     strcpy(kisi->soyad,soyad);
     strcpy(kisi->tel,tel);
@@ -32,13 +32,14 @@ node * ekle(node *head,char *ad,char *soyad,char *tel){
         printf("ilk kisi eklendi");
 
     }
-    else{
+    else
+    {
         node *temp = head;
-        while(temp->next != NULL){
-            temp = temp->next;
-            temp->next=kisi;
-            printf("%s rehbere eklendi",ad);
-        }
+        while(temp->next != NULL)
+        temp = temp->next;
+        temp->next=kisi;
+        printf("%s rehbere eklendi",ad);
+        
     }
 
     return head;
@@ -57,8 +58,7 @@ node * sil(node *head){
     else{
         char numara[20];
 
-        printf("silencek kisinin numarasi");
-        scanf("%s",numara);
+        printf("silencek kisinin numarasi");  scanf("%s",numara);
 
         if(head->next==NULL && strcmp(head->tel,numara)==0){
             free(head);
@@ -74,8 +74,8 @@ node * sil(node *head){
             printf("%s numarali kisi silindi",numara);
         }
         else{
-            node *temp2 = head;
             node *temp = head;
+            node *temp2 = head;
             while(temp->next!=NULL){
                 if(strcmp(temp->tel,numara)==0){
                     
@@ -104,14 +104,15 @@ node * sil(node *head){
 //////
 //////
 node * yazdir(node *head){
+    system("cls");
     if(head==NULL){
         printf("list is empty");
     }
 
     else{
         node *temp = head;
-        printf("kayitli kisiler");
-        printf("--------------\n\n");
+        printf("kayitli kisiler\n");
+        printf("--------------\n");
         while(temp!=NULL){
             printf("%s\t%s\t%s\n",temp->ad,temp->soyad,temp->tel);
             temp = temp->next;
@@ -133,8 +134,7 @@ node * arama(node *head){
     else{
 
         char numara[20];
-        printf("Aradiginiz kisinin numarasi");
-        scanf("%s",numara);
+        printf("Aradiginiz kisinin numarasi");   scanf("%s",numara);
 
         node *temp = head;
         while(temp!=NULL){
@@ -164,7 +164,7 @@ void menu(){
 int main(){
     
 
-
+    
 
     node * head = NULL;
     int secim;
@@ -172,33 +172,34 @@ int main(){
     while(1){
         menu();
         scanf("%d",&secim);
-        if(secim==1){
+        switch(secim){
+            case(1):
             printf("eklenecek kisinin bilgilerini giriniz\n");
             printf("ad      :"); scanf("%s",ad);
             printf("soyad   :"); scanf("%s",soyad);
             printf("telefon :"); scanf("%s",tel);
             head = ekle(head,ad,soyad,tel);
-           
+           break;
+        
+            case(2):
+                head = sil(head);
+                break;
+        
+            case(3):
+                head = yazdir(head);
+                break;
+        
+            case(4):
+                head = arama(head);
+               break;
+        
+            case(0):
+                printf("cikis yapildi");
+                return 0;
+        
+            default:    printf("hatali giris yapildi");
         }
-        else if(secim==2){
-            head = sil(head);
-            
-        }
-        else if(secim==3){
-            head = yazdir(head);
-            
-        }
-        else if(secim==4){
-            head = arama(head);
-           
-        }
-        else if(secim==0){
-            printf("cikis yapildi");
-            return 0;
-        }
-        else{
-            printf("hatali giris yapildi");
-        }
+        
 
 
     }
