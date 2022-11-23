@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
 
 int main()
@@ -14,7 +6,7 @@ int main()
     int arr[9],sirali[9];
     
     
-    printf("1) bireysel\n2)kurumsal\n3)65+ \n1-2-3 \nsayilarindan birini giriniz'");
+    printf("1)kurumsal\n2)bireysel\n3)65+ \n1-2-3 \nsayilarindan birini giriniz'");
     int i,k,j,l;
     for(i=0;i<10;i++){
         scanf("%d",&arr[i]);
